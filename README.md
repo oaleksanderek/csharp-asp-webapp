@@ -1,11 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/pW8Utco7)
-# Projekt: ASP MVC wymagania
-
-| Termin oddania (bez przedłużania) | Punkty     |
-|:----------------:|:-----------:|
-| 18.01.2025  10:30   |    50%      |
-
-
 ## Aplikacja realizująca CRUD
 Celem jest implementacja aplikacji w technologii ASP MVC (framework lub core),
 spełniającej poniższe założenia. Tematyka aplikacji dowolna.
@@ -41,3 +33,5 @@ Program powinien zawierać:
 - [Overview of ASP.NET Core MVC](https://docs.microsoft.com/en-gb/aspnet/core/mvc/overview?view=aspnetcore-3.1)
 - [CodeProject: Learn MVC Project in 7 days](https://www.codeproject.com/Articles/866143/Learn-MVC-Project-in-days-Day)
 - [Yogi Hosting: ASP.NET Core](https://www.yogihosting.com/aspnet-core-introduction/) 
+
+## Zadanie zostało wykonane na potrzeby laboratoriów na Uniwersytecie Gdańskim
