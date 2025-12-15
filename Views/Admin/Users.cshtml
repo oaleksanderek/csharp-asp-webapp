@@ -1,0 +1,41 @@
+@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+<body>
+<h1>List of users</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+    <tr>
+        <td>@user.Id</td>
+        <td>@user.UserName</td>
+        <td>@user.Email</td>
+        <td>
+            <form asp-action="DeleteUser" asp-controller="Admin" method="post" style="display:inline;">
+                @Html.AntiForgeryToken()
+                <input type="hidden" name="id" value="@user.Id" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </td>
+    </tr>
+    }
+    </tbody>
+</table>
+</body>
+</html>

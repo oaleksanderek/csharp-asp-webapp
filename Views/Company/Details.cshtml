@@ -1,0 +1,45 @@
+<h2 class="text-center mb-4">Reviews</h2>
+
+@if (Model.Reviews.Count > 0)
+{
+<div class="row">
+    @foreach (var review in Model.Reviews)
+    {
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <strong>User:</strong> @review.User?.UserName
+                </h5>
+                <p class="card-text">
+                    <strong>Rating:</strong> @review.Rating<br />
+                    <strong>Comment:</strong> @review.Comment<br />
+                    <strong>Created at:</strong> @review.CreatedAt.ToString("yyyy-MM-dd HH:mm")
+                </p>
+                <div class="d-flex justify-content-between">
+                    @if (User.Identity.IsAuthenticated && review.UserId == User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value)
+                    {
+                    <a asp-action="Edit" asp-controller="Review" asp-route-id="@review.Id" class="btn btn-warning">Edit</a>
+                    }
+                    @if (User.Identity.IsAuthenticated && (review.UserId == User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value || User.IsInRole("Admin")))
+                    {
+                    <a asp-action="Delete" asp-controller="Review" asp-route-id="@review.Id" class="btn btn-danger">Delete</a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+}
+else
+{
+<p class="text-center">No reviews for this company yet. Add your own!</p>
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+<div class="text-center mt-4">
+    <a asp-action="Create" asp-controller="Review" asp-route-companyId="@Model.Id" class="btn btn-primary">Add a Review</a>
+</div>
+}

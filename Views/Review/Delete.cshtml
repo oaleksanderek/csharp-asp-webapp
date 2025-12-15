@@ -1,0 +1,18 @@
+@model WebApp.Models.Review
+
+<h1>Delete review</h1>
+
+<p>Do you really want to delete this review?</p>
+
+<ul>
+    <li><strong>User:</strong> @Model.User?.UserName</li>
+    <li><strong>Rating:</strong> @Model.Rating</li>
+    <li><strong>Comment:</strong> @Model.Comment</li>
+</ul>
+
+<form asp-action="DeleteConfirmed" method="post">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Details" asp-controller="Company" asp-route-id="@Model.CompanyId" class="btn btn-secondary">Cancel</a>
+</form>
